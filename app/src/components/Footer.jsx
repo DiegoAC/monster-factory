@@ -1,4 +1,4 @@
-import { Dumbbell, Instagram, Facebook } from 'lucide-react';
+import { Dumbbell, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -13,10 +13,11 @@ export default function Footer() {
 
                     <div className="relative z-10">
                         <h2 className="font-display text-5xl md:text-8xl mb-8 leading-tight">¿LISTO PARA <span className="text-primary drop-shadow-[0_0_20px_rgba(255,107,53,0.4)]">EMPEZAR?</span></h2>
-                        <p className="text-xl md:text-3xl text-text-secondary mb-12 font-light">Primera semana <strong className="text-white">GRATIS</strong>. Sin compromiso.</p>
-                        <Link to="/#contact" className="inline-block bg-primary text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_35px_rgba(255,107,53,0.6)] hover:-translate-y-1 tracking-wide">
-                            RESERVAR PRUEBA GRATIS
-                        </Link>
+                        <p className="text-xl md:text-3xl text-text-secondary mb-12 font-light">Escríbenos por WhatsApp hoy mismo.</p>
+                        <a href="https://wa.me/34602530088" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-primary text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_35px_rgba(255,107,53,0.6)] hover:-translate-y-1 tracking-wide">
+                            <MessageCircle size={24} />
+                            RESERVA TU PLAZA
+                        </a>
                     </div>
                 </div>
 
@@ -43,13 +44,10 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-display text-2xl tracking-wide mb-8 text-white">SÍGUENOS</h4>
+                        <h4 className="font-display text-2xl tracking-wide mb-8 text-white">CONTACTO RÁPIDO</h4>
                         <div className="flex gap-4">
-                            <a href="#" className="w-14 h-14 rounded-full bg-surface/50 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-primary/20 hover:border-primary/50 transition-all shadow-lg hover:shadow-[0_0_15px_rgba(255,107,53,0.3)]">
-                                <Instagram size={24} />
-                            </a>
-                            <a href="#" className="w-14 h-14 rounded-full bg-surface/50 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-primary/20 hover:border-primary/50 transition-all shadow-lg hover:shadow-[0_0_15px_rgba(255,107,53,0.3)]">
-                                <Facebook size={24} />
+                            <a href="https://wa.me/34602530088" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-[#25D366]/20 border border-[#25D366]/50 flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all shadow-lg hover:shadow-[0_0_15px_rgba(37,211,102,0.6)]">
+                                <MessageCircle size={24} />
                             </a>
                         </div>
                     </div>

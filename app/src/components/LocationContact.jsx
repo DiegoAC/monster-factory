@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Clock, Phone, Mail } from 'lucide-react';
+import { MapPin, Clock, MessageCircle, Phone } from 'lucide-react';
 
 export default function LocationContact() {
     return (
@@ -24,12 +24,29 @@ export default function LocationContact() {
                         viewport={{ once: true }}
                         className="w-full lg:w-1/2"
                     >
-                        <div className="h-[400px] w-full bg-surface/30 rounded-3xl border border-white/5 mb-10 overflow-hidden relative group backdrop-blur-sm">
-                            <div className="absolute inset-0 flex items-center justify-center text-text-secondary flex-col">
-                                <MapPin className="text-primary/40 w-16 h-16 mb-4 group-hover:scale-110 transition-transform duration-500 group-hover:text-primary/60" />
-                                <span className="font-bold tracking-widest text-lg">MAPA INTERACTIVO</span>
-                                <span className="text-xs text-white/30 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">(Requiere API Key real)</span>
-                            </div>
+                        <div className="h-[400px] w-full rounded-3xl border border-white/5 mb-10 overflow-hidden relative shadow-2xl group">
+                            <iframe
+                                src="https://maps.google.com/maps?q=41.9048979,-1.7179584&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="absolute inset-0 opacity-80 hover:opacity-100 transition-opacity duration-500 ease-in-out"
+                                title="Google Maps"
+                            ></iframe>
+
+                            {/* Hover button to open directly in the app (better for mobile) */}
+                            <a
+                                href="https://maps.app.goo.gl/LXYSyacaL1SSV39N7"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute top-4 right-4 bg-background/80 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 border border-white/10 hover:bg-primary/90 hover:border-primary transition-all shadow-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+                            >
+                                <MapPin size={18} />
+                                Abrir en Maps
+                            </a>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -39,7 +56,16 @@ export default function LocationContact() {
                                 </div>
                                 <div>
                                     <div className="font-bold text-lg mb-1 text-white">Dirección</div>
-                                    <div className="text-text-secondary leading-relaxed">Tarazona, Zaragoza<br />España</div>
+                                    <a
+                                        href="https://maps.app.goo.gl/LXYSyacaL1SSV39N7"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-text-secondary leading-relaxed hover:text-primary transition-colors block"
+                                    >
+                                        Avenida de la Ribera, 58<br />
+                                        Tarazona, Zaragoza (Aparcamiento Mercadona)<br />
+                                        España
+                                    </a>
                                 </div>
                             </div>
                             <div className="flex items-start gap-5">
@@ -52,60 +78,48 @@ export default function LocationContact() {
                                 </div>
                             </div>
                             <div className="flex items-start gap-5">
-                                <div className="bg-accent/10 p-3 rounded-2xl border border-accent/20">
-                                    <Phone className="text-accent w-6 h-6 flex-shrink-0" />
+                                <div className="bg-[#25D366]/20 p-3 rounded-2xl border border-[#25D366]/30">
+                                    <MessageCircle className="text-[#25D366] w-6 h-6 flex-shrink-0" />
                                 </div>
                                 <div>
-                                    <div className="font-bold text-lg mb-1 text-white">Teléfono</div>
-                                    <div className="text-text-secondary leading-relaxed">[Pendiente]</div>
+                                    <div className="font-bold text-lg mb-1 text-white">WhatsApp</div>
+                                    <div className="text-text-secondary leading-relaxed text-xl">602 530 088</div>
                                 </div>
                             </div>
                             <div className="flex items-start gap-5">
-                                <div className="bg-accent/10 p-3 rounded-2xl border border-accent/20">
-                                    <Mail className="text-accent w-6 h-6 flex-shrink-0" />
+                                <div className="bg-primary/20 p-3 rounded-2xl border border-primary/30">
+                                    <Phone className="text-primary w-6 h-6 flex-shrink-0" />
                                 </div>
                                 <div>
-                                    <div className="font-bold text-lg mb-1 text-white">Email</div>
-                                    <div className="text-text-secondary leading-relaxed">[Pendiente]</div>
+                                    <div className="font-bold text-lg mb-1 text-white">Atención al cliente</div>
+                                    <div className="text-text-secondary leading-relaxed">
+                                        Lunes a Jueves: 12h a 20h<br />
+                                        Viernes: 9h a 13h
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Contact Form */}
+                    {/* Direct Contact via Whatsapp Instead of Form */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="w-full lg:w-1/2"
+                        className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-surface/40 backdrop-blur-md border border-white/5 rounded-3xl relative overflow-hidden group"
                     >
-                        <div className="bg-surface/40 p-10 md:p-14 rounded-3xl border border-white/5 h-full backdrop-blur-md shadow-2xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-[#25D366]/20 transition-colors duration-700"></div>
 
-                            <h3 className="font-display text-5xl mb-10 tracking-wide relative z-10 text-white">ENVÍANOS UN <span className="text-primary">MENSAJE</span></h3>
-                            <form className="space-y-6 relative z-10">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div>
-                                        <label className="block text-sm font-bold tracking-wider text-text-secondary mb-3 uppercase">Nombre</label>
-                                        <input type="text" className="w-full bg-background/50 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background transition-all" placeholder="Tu nombre" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-bold tracking-wider text-text-secondary mb-3 uppercase">Teléfono</label>
-                                        <input type="tel" className="w-full bg-background/50 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background transition-all" placeholder="Tu teléfono" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-bold tracking-wider text-text-secondary mb-3 uppercase">Email</label>
-                                    <input type="email" className="w-full bg-background/50 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background transition-all" placeholder="Tu email" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-bold tracking-wider text-text-secondary mb-3 uppercase">Mensaje</label>
-                                    <textarea rows="4" className="w-full bg-background/50 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background transition-all resize-none" placeholder="¿En qué te podemos ayudar?"></textarea>
-                                </div>
-                                <button type="button" className="w-full bg-primary text-white py-5 rounded-xl font-bold text-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_25px_rgba(255,107,53,0.5)] mt-4">
-                                    ENVIAR MENSAJE
-                                </button>
-                            </form>
+                        <div className="text-center relative z-10 p-10">
+                            <MessageCircle className="w-24 h-24 text-[#25D366] mx-auto mb-8 drop-shadow-[0_0_15px_rgba(37,211,102,0.4)]" />
+                            <h3 className="font-display text-5xl mb-6 tracking-wide text-white">¿TIENES <span className="text-[#25D366]">DUDAS?</span></h3>
+                            <p className="text-text-secondary text-lg mb-12 max-w-sm mx-auto font-light leading-relaxed">
+                                Escríbenos directamente por WhatsApp. Te responderemos al instante para ayudarte a dar el primer paso hacia tu nueva mejor versión.
+                            </p>
+                            <a href="https://wa.me/34602530088" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#25D366] text-white py-5 px-12 rounded-2xl font-bold text-xl hover:bg-[#20bd5a] transition-all hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] hover:-translate-y-2">
+                                <MessageCircle size={28} />
+                                ABRIR CHAT
+                            </a>
                         </div>
                     </motion.div>
                 </div>

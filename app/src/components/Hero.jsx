@@ -42,7 +42,7 @@ export default function Hero() {
                 style={{ y, scale }}
             >
                 <img
-                    src="/referencias/gym_interior_hero.jpg"
+                    src="/referencias/gym_background.jpg"
                     alt="Gym Interior"
                     className="w-full h-full object-cover opacity-20"
                 />
@@ -112,7 +112,7 @@ export default function Hero() {
                             <div className="relative w-full bg-gradient-to-r from-primary to-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-transform duration-300 group-hover:scale-[1.03] flex items-center justify-center overflow-hidden">
                                 {/* Diagonal Shine Effect */}
                                 <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover:animate-shine"></div>
-                                <span className="tracking-wide relative z-10 group-active:scale-95 transition-transform">PRUEBA GRATIS &rarr;</span>
+                                <span className="tracking-wide relative z-10 group-active:scale-95 transition-transform">RESERVA TU PLAZA &rarr;</span>
                             </div>
                         </a>
 
